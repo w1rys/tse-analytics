@@ -1,0 +1,10 @@
+.venv/
+data/*
+!data/.gitkeep
+__pycache__/
+*.py[cod]
+*.part
+.ipynb_checkpoints/
+.vscode/
+.DS_Store
+*.part
