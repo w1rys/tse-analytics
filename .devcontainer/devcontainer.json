@@ -1,0 +1,36 @@
+{
+  "name": "tse-analytics",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "root",
+  "containerEnv": {
+    "POETRY_VIRTUALENVS_CREATE": "false",
+    "PYTHONPATH": "/workspaces",
+    "PYSPARK_PYTHON": "/usr/local/bin/python"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": false,
+        "python.analysis.autoImportCompletions": true,
+        "jupyter.notebookFileRoot": "${workspaceFolder}"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
+  },
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab",
+      "onAutoForward": "notify"
+    }
+  },
+"postCreateCommand": "poetry install --no-interaction --no-ansi --no-root"
+}
