@@ -47,4 +47,5 @@ if __name__ == "__main__":
 
     extractor = ExtractFromZip()
     extractor.extract_anos(range(args.inicio, args.fim + 1, args.intervalo))
+
 # %%
